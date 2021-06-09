@@ -189,9 +189,83 @@ CREATE TABLE Rechnung(
 	RechnungsID NUMBER NOT NULL,	
 	RechnungsSumme NUMBER(7,2) NOT NULL,	
 	Ausstellungsdatum DATE NOT NULL,	
-	AdresseID NUMBER NOT NULL,	
-	KontoNr NUMBER NOT NULL
+	Austeller VARCHAR2(255) NOT NULL,	
+	AustellerKontoNr VARCHAR2(255) NOT NULL,
+	Empfaenger VARCHAR2(255) NOT NULL,
+	EmpfaengerKontoNr VARCHAR2(255) NOT NULL		
 );
+
+
+-------------------------------------
+--  DDL table for Bestellung
+-------------------------------------
+CREATE TABLE Bestellung(
+	RechnungsID NUMBER NOT NULL,	
+	LieferantenID NUMBER NOT NULL,	
+	AdressID NUMBER NOT NULL,		
+  RechnungsID NUMBER NOT NULL,
+  Buchungspreis NUMBER(7,2) NOT NULL	
+);
+
+
+-------------------------------------
+--  DDL table for Zimmerbuchung
+-------------------------------------
+CREATE TABLE Zimmerbuchung(
+	BuchungsID NUMBER NOT NULL,	
+	Buchungsdatum DATE NOT NULL,	
+	PersonID NUMBER NOT NULL,		
+  RechnungsID NUMBER NOT NULL,
+  Buchungspreis NUMBER(7,2) NOT NULL	
+);
+
+
+-------------------------------------
+--  DDL table for Bestelldetails
+-------------------------------------
+CREATE TABLE Bestelldetails(
+	BestellungsID NUMBER NOT NULL,	
+	WarenID NUMBER NOT NULL,	
+	Anzahl NUMBER NOT NULL,		
+  Preis NUMBER(7,2) NOT NULL	
+);
+
+
+
+-------------------------------------
+--  DDL table for Servicedetails
+-------------------------------------
+CREATE TABLE Servicedetails(
+	BuchungsID NUMBER NOT NULL,	
+	ServiceID NUMBER NOT NULL,	
+	Anzahl NUMBER NOT NULL,		
+  Preis NUMBER(7,2) NOT NULL	
+);
+
+
+
+-------------------------------------
+--  DDL table for Zimmerbuchungsdetails
+-------------------------------------
+CREATE TABLE Zimmerbuchungsdetails(
+	ZimmerNr NUMBER NOT NULL,	
+	BuchungsID NUMBER NOT NULL,	
+	DauerTagen NUMBER NOT NULL, 
+	Anzahl NUMBER NOT NULL,		
+  Preis NUMBER(7,2) NOT NULL	
+);
+
+
+-------------------------------------
+--  DDL table for Kundenbewertung
+-------------------------------------
+CREATE TABLE Kundenbewertung(
+	PersonID NUMBER NOT NULL,	
+	BewertungsID NUMBER NOT NULL, 
+	Bewertungskommentar VARCHAR2(250) NOT NULL,			
+  BuchungsID NUMBER NOT NULL	
+);
+
 
 
 
