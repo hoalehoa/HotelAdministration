@@ -200,7 +200,7 @@ CREATE TABLE Rechnung(
 --  DDL table for Bestellung
 -------------------------------------
 CREATE TABLE Bestellung(
-	RechnungsID NUMBER NOT NULL,	
+	BestellungsID NUMBER NOT NULL,	
 	LieferantenID NUMBER NOT NULL,	
 	AdressID NUMBER NOT NULL,		
   RechnungsID NUMBER NOT NULL,
@@ -267,5 +267,6 @@ CREATE TABLE Kundenbewertung(
 );
 
 
-
+-- CHECK for table-creation ("are all tables there?")
+SELECT table_name FROM user_tables; 
 
